@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adventure Dive Tours - Destinations</title>
+    <!-- Google Fonts: Poppins, Montserrat, Lato, Playfair Display -->
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400&family=Montserrat:wght@800&family=Playfair+Display:wght@500&family=Poppins:wght@400;500;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <!-- Splide.js Slider CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css">
+</head>
+<body>
+        <!-- Header / Navbar -->
+        <header class="header">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="index.html">
+                        <div class="logo-mark">🌊</div> <!-- Wave logo mark placeholder -->
+                        <span class="logo-wordmark">Adventure Dive Tours</span>
+                    </a>
+                </div>
+                <div class="search-input-container">
+                    <span class="search-icon icon-magnifier"></span>
+                    <input type="text" class="search-input" placeholder="Search destinations, dates or tours">
+                </div>
+                <nav class="nav-links">
+                    <a href="destinations.html" class="nav-link">Destinations</a>
+                    <a href="tours.html" class="nav-link">Tours</a>
+                    <a href="about.html" class="nav-link">About</a>
+                    <a href="contact.html" class="nav-link">Contact</a>
+                    <a href="#" class="nav-link btn btn-primary button-text">Book Now</a>
+                </nav>
+            </div>
+        </header>
+
+        <main>
+            <section class="page-hero" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('images/blue-hole.jpg');">
+                <div class="page-hero-content">
+                    <h1>Our Dive Destinations</h1>
+                    <p>Explore the world's most breathtaking underwater landscapes.</p>
+                </div>
+            </section>
+            <section class="page-content">
+                <div class="container">
+                    <h2 class="text-center">Choose Your Adventure</h2>
+                    <nav class="destination-nav">
+                        <a href="#" class="dest-nav-link active" data-target="snorkelling">Snorkelling</a>
+                        <a href="#" class="dest-nav-link" data-target="diving">Diving</a>
+                        <a href="#" class="dest-nav-link" data-target="jungle">Jungle</a>
+                    </nav>
+
+                    <!-- Snorkelling Tours -->
+                    <div id="snorkelling" class="destination-content active">
+                        <div id="snorkelling-slider" class="splide destination-slider" aria-label="Snorkelling Tours">
+                            <div class="splide__track">
+                                <ul class="splide__list">
+                                    <!-- Tour 1: Silk Caye -->
+                                    <li class="splide__slide">
+                                        <div class="card tour-card banner-card" 
+                                            data-title="Silk Caye Snorkeling"
+                                            data-price="$650 USD"
+                                            data-description="Enjoy a full day of snorkeling in the crystal-clear waters of Silk Caye, a protected marine reserve known for its vibrant coral and abundant sea life."
+                                            data-itinerary="8:00 AM: Depart from Placencia | 10:00 AM: Arrive at Silk Caye & Snorkel Session 1 | 12:30 PM: Lunch on the island | 2:00 PM: Snorkel Session 2 | 4:00 PM: Return to Placencia"
+                                            data-difficulty="Easy"
+                                            data-included="Water, Towels, Park Fees, Gear, Rum Punch/Beer, Lunch, Snacks, Guide"
+                                            data-not-included="Gratuities, Souvenirs"
+                                            data-bring="Swimsuit, Sunscreen, Hat, Sunglasses, Waterproof Camera">
+                                            <div class="card-image" style="background-image: url('images/1.jpeg');"></div>
+                                            <div class="card-overlay"></div>
+                                            <div class="card-price-pill">$650 USD</div>
+                                            <div class="card-content">
+                                                <div class="card-title">Silk Caye Snorkeling</div>
+                                                <div class="card-meta">Private Tour (2-4 ppl)</div>
+                                            </div>
+                                            <div class="card-actions">
+                                                <div class="card-view-details">Details</div>
+                                                <div class="card-book-now btn btn-accent">Book Now</div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <!-- Tour 3: Combo -->
+                                    <li class="splide__slide">
+                                        <div class="card tour-card banner-card"
+                                            data-title="Snorkel & Fish Combo"
+                                            data-price="$700 USD"
+                                            data-description="The best of both worlds! Spend half the day fishing the inner reef and the other half snorkeling the beautiful Moho Caye."
+                                            data-itinerary="8:00 AM: Depart for fishing | 11:30 AM: Head to Moho Caye for lunch | 1:00 PM: Snorkel at Moho Caye | 4:00 PM: Return to Placencia"
+                                            data-difficulty="Easy"
+                                            data-included="All Gear (Fishing & Snorkel), Lunch, Drinks, Guide"
+                                            data-not-included="Gratuities"
+                                            data-bring="Swimsuit, Towel, Sunscreen, Hat, Camera">
+                                            <div class="card-image" style="background-image: url('images/3.jpeg');"></div>
+                                            <div class="card-overlay"></div>
+                                            <div class="card-price-pill">$700 USD</div>
+                                            <div class="card-content">
+                                                <div class="card-title">Snorkel & Fish Combo</div>
+                                                <div class="card-meta">Private Tour (2-4 ppl)</div>
+                                            </div>
+                                            <div class="card-actions">
+                                                <div class="card-view-details">Details</div>
+                                                <div class="card-book-now btn btn-accent">Book Now</div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Diving Tours -->
+                    <div id="diving" class="destination-content">
+                        <div class="placeholder-content">
+                            <h3>Coming Soon: Diving Adventures</h3>
+                            <p>We are currently curating a selection of world-class diving tours. Please check back soon or contact us for more information on custom dive packages.</p>
+                        </div>
+                    </div>
+
+                    <!-- Jungle Tours -->
+                    <div id="jungle" class="destination-content">
+                        <div id="jungle-slider" class="splide destination-slider" aria-label="Jungle Tours">
+                            <div class="splide__track">
+                                <ul class="splide__list">
+                                    <!-- Tour 4: Monkey River -->
+                                    <li class="splide__slide">
+                                        <div class="card tour-card banner-card"
+                                            data-title="Monkey River Tour"
+                                            data-price="$85 USD"
+                                            data-description="Journey up the Monkey River into the jungle to spot howler monkeys, crocodiles, manatees, and exotic birds in their natural habitat."
+                                            data-itinerary="8:00 AM: Boat ride to Monkey River Village | 9:00 AM: Jungle hike and wildlife spotting | 12:00 PM: Traditional lunch in the village | 2:00 PM: Return boat trip"
+                                            data-difficulty="Easy"
+                                            data-included="Boat transport, Guided hike, Lunch, Water"
+                                            data-not-included="Gratuities, Sodas in the village"
+                                            data-bring="Insect Repellent, Binoculars, Camera, Comfortable Shoes">
+                                            <div class="card-image" style="background-image: url('images/monkey-river.jpg');"></div>
+                                            <div class="card-overlay"></div>
+                                            <div class="card-price-pill">$85 USD</div>
+                                            <div class="card-content">
+                                                <div class="card-title">Monkey River Tour</div>
+                                                <div class="card-meta">Per Person</div>
+                                            </div>
+                                            <div class="card-actions">
+                                                <div class="card-view-details">Details</div>
+                                                <div class="card-book-now btn btn-accent">Book Now</div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <!-- Tour 5: Xunantunich -->
+                                    <li class="splide__slide">
+                                        <div class="card tour-card banner-card"
+                                            data-title="Xunantunich & Blue Hole"
+                                            data-price="$150 USD"
+                                            data-description="Explore the magnificent Mayan ruins of Xunantunich, then cool off with a refreshing swim in the inland Blue Hole cenote."
+                                            data-itinerary="7:00 AM: Depart Placencia | 9:30 AM: Tour Xunantunich ruins | 12:30 PM: Lunch | 2:00 PM: Swim at St. Herman's Blue Hole National Park | 5:00 PM: Arrive back in Placencia"
+                                            data-difficulty="Moderate"
+                                            data-included="Transportation, Park Fees, Guide, Lunch, Water"
+                                            data-not-included="Gratuities"
+                                            data-bring="Comfortable Walking Shoes, Swimsuit, Towel, Sunscreen, Camera">
+                                            <div class="card-image" style="background-image: url('images/xunantunich.jpeg');"></div>
+                                            <div class="card-overlay"></div>
+                                            <div class="card-price-pill">$150 USD</div>
+                                            <div class="card-content">
+                                                <div class="card-title">Xunantunich & Blue Hole</div>
+                                                <div class="card-meta">Per Person</div>
+                                            </div>
+                                            <div class="card-actions">
+                                                <div class="card-view-details">Details</div>
+                                                <div class="card-book-now btn btn-accent">Book Now</div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="language-toggle">
+                <span class="active">EN</span> / <span>ES</span>
+            </div>
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h4>Contact Us</h4>
+                    <ul>
+                        <li>Email: info@adventuredive.com</li>
+                        <li>Phone: +1 (555) 123-4567</li>
+                        <li>Address: 123 Ocean Drive, Belize City</li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="destinations.html">Destinations</a></li>
+                        <li><a href="tours.html">Tours</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Follow Us</h4>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon icon-facebook"></a>
+                        <a href="#" class="social-icon icon-instagram"></a>
+                        <a href="#" class="social-icon icon-twitter"></a>
+                        <a href="#" class="social-icon icon-youtube"></a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2025 Adventure Dive Tours. All rights reserved.
+            </div>
+            <img src="images/footer-background.png" alt="Palm tree silhouette" class="footer-background-image">
+        </footer>
+
+        <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+        <script src="script.js"></script>
+</body>
+</html>
