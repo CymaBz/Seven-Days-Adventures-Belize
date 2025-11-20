@@ -219,43 +219,6 @@ a:hover {
     text-transform: uppercase;
 }
 
-.search-input-container {
-    flex-grow: 1;
-    display: flex;
-    justify-content: center;
-    position: relative; /* Make it relative for icon positioning */
-}
-.search-input {
-    width: 540px;
-    height: 44px;
-    border-radius: 22px;
-    background-color: rgba(255,255,255,0.04);
-    border: 1px solid transparent;
-    padding: 0 20px 0 45px; /* Space for icon */
-    color: var(--color-near-white);
-    font-size: 14px;
-    outline: none;
-    transition: all 0.2s ease-in-out;
-    position: relative;
-}
-.search-input::placeholder {
-    color: var(--color-muted-gray);
-    font-size: 13px;
-}
-.search-input:focus {
-    border-color: var(--color-accent-cyan);
-    box-shadow: 0 0 10px rgba(56,198,230,0.12);
-}
-.search-icon {
-    position: absolute;
-    left: calc(50% - 540px/2 + 20px); /* Position relative to the input's left edge */
-    top: 50%;
-    transform: translateY(-50%);
-    color: var(--color-muted-gray);
-    pointer-events: none;
-    font-size: 18px; /* Placeholder for icon */
-}
-
 .nav-links {
     display: flex;
     align-items: center;
@@ -1104,6 +1067,28 @@ a:hover {
     }
 }
 
+/* --- Hamburger Menu --- */
+.hamburger-menu {
+    display: none; /* Hidden by default on desktop */
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 24px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1001; /* Ensure it's on top of other header content */
+}
+
+.hamburger-line {
+    width: 30px;
+    height: 3px;
+    background-color: var(--color-near-white);
+    border-radius: 3px;
+    transition: all 0.3s linear;
+}
+
 /* Placeholder Icons (using simple text or unicode) */
 .icon-magnifier::before { content: '🔍'; }
 .icon-certified::before { content: '✅'; }
@@ -1118,151 +1103,127 @@ a:hover {
 .icon-twitter::before { content: '🐦'; }
 .icon-youtube::before { content: '▶️'; }
 
-/* Mobile Styles (375x812 px) */
-@media (max-width: 375px) {
+/* --- General Mobile & Tablet Styles --- */
+@media (max-width: 768px) {
     .container {
         padding: 0 20px; /* Reduced padding for mobile */
     }
 
+    /* --- Header & Navigation --- */
     .header {
         height: 60px; /* Reduced header height */
         padding: 0 20px;
     }
-    .logo-wordmark {
-        display: none; /* Hide wordmark on mobile */
-    }
-    .search-input-container {
-        display: none; /* Hide search input on mobile */
-    }
+
     .nav-links {
-        gap: 16px; /* Adjust nav link spacing */
+        display: none; /* Hide nav links by default on mobile */
+        position: absolute;
+        top: 60px; /* Position below header */
+        left: 0;
+        right: 0;
+        background-color: rgba(12,17,19,0.95);
+        backdrop-filter: blur(5px);
+        flex-direction: column;
+        width: 100%;
+        padding: 1rem 0;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        z-index: 1000;
     }
-    .nav-links a:not(.btn) {
-        display: none; /* Hide most nav links for hamburger */
+    .nav-links.active {
+        display: flex; /* Show when hamburger is clicked */
     }
-    .nav-links .btn-primary {
-        padding: 8px 16px; /* Adjust button padding */
-        font-size: 12px;
+    .nav-links .nav-link {
+        padding: 1rem;
+        text-align: center;
+        border-bottom: 1px solid rgba(255,255,255,0.05);
     }
-    /* Hamburger menu placeholder */
-    .header-content::before {
-        content: '☰';
-        font-size: 24px;
-        color: var(--color-near-white);
-        cursor: pointer;
-        order: -1; /* Place before logo */
+    .nav-links .nav-link::after {
+        display: none; /* Hide underline effect on mobile nav */
     }
 
+    .hamburger-menu {
+        display: flex; /* Show hamburger on mobile */
+    }
+
+    /* --- Hero Section --- */
     .hero {
-        height: 360px; /* Reduced hero height */
-        background-position: 60% center; /* Adjust background for mobile */
+        height: auto;
+        min-height: 50vh;
     }
     .hero-content {
-        padding-top: 60px; /* Adjust for smaller header and visual alignment */
-        padding-left: 20px;
-        padding-right: 20px;
-        flex-direction: column; /* Stack content */
-        align-items: center;
+        padding-top: 100px;
+        padding-bottom: 40px;
+    }
+    .hero-text-block {
         text-align: center;
+    }
+    .hero-logo {
+        width: 80%;
+        max-width: 350px;
+    }
+    h1 {
+        font-size: 60px;
     }
     .step-indicator {
         display: none; /* Hide step indicator on mobile */
     }
-    .hero-headline {
-        font-size: 60px; /* Smaller headline */
-        letter-spacing: -1px;
-        margin-top: 0;
-    }
-    .hero-subheadline {
-        font-size: 16px;
-        margin-top: 8px;
-    }
     .icon-chips {
-        flex-wrap: wrap; /* Allow chips to wrap */
         justify-content: center;
-        margin-top: 16px;
-        gap: 12px;
+        flex-wrap: wrap;
+        gap: 10px;
     }
 
-    .section-wonders {
-        /* Adjust for booking control overlap: estimated 300px height, -60px bottom means 240px overlap */
-        padding-top: var(--section-padding-y);
-        padding-bottom: var(--section-padding-y);
+    /* --- Generic Page Hero --- */
+    .page-hero {
+        padding: 120px 20px 60px;
+        min-height: 300px;
     }
+    .page-hero-content h1 {
+        font-size: 48px;
+    }
+
+    /* --- Sections --- */
+    .section-tours, .section-why-choose-us, .section-two-column, .page-content {
+        padding: 48px 20px;
+    }
+
     .section-header {
         margin-bottom: 48px; /* Adjust spacing */
     }
-    .card-grid {
-        grid-template-columns: 1fr; /* Single column for cards */
-        padding: 0 20px;
-    }
-    .card {
-        width: 100%; /* Full width cards */
-        height: 200px; /* Adjust height */
-    }
 
-    .section-why-choose-us {
-        padding: 48px 20px; /* Adjust padding */
-    }
+    /* --- Why Choose Us Section --- */
     .features-grid {
         flex-direction: column; /* Stack features vertically */
         gap: 48px;
         margin-top: 48px;
     }
     .feature-item {
-        width: 100%;
+        width: 100%; /* Allow feature items to fill the width on mobile */
     }
 
+    /* --- Two-Column / Imagery Section --- */
     .section-two-column {
         flex-direction: column; /* Stack columns vertically */
-        padding: 48px 20px;
     }
     .image-collage {
-        grid-template-columns: 1fr; /* Single column for collage images */
-        gap: 8px;
+        grid-template-columns: 1fr 1fr; /* 2 columns on mobile */
         margin-bottom: 32px;
     }
-    .collage-img:nth-child(1) { grid-column: auto; grid-row: auto; height: 250px; }
-    .collage-img:nth-child(2) { grid-column: auto; grid-row: auto; height: 150px; }
-    .collage-img:nth-child(3) { grid-column: auto; grid-row: auto; height: 150px; }
     .content-block {
         padding-left: 0;
         text-align: center;
     }
-    .content-block h2 {
-        font-size: 20px;
-    }
-    .content-block p {
-        font-size: 14px;
-    }
 
-    .section-map {
-        height: 400px; /* Adjust map height */
-        padding: 48px 20px;
-    }
-
-
+    /* --- Footer --- */
     .footer {
         padding: 48px 20px;
     }
     .footer-content {
-        grid-template-columns: 1fr; /* Single column for footer */
-        gap: 32px;
-    }
-    .footer-column {
+        grid-template-columns: 1fr; /* Single column layout */
         text-align: center;
-    }
-    .footer-column h4 {
-        margin-bottom: 16px;
+        gap: 32px;
     }
     .social-icons {
         justify-content: center;
-    }
-    .language-toggle {
-        top: 20px;
-        right: 20px;
-    }
-    .copyright {
-        margin-top: 32px;
     }
 }

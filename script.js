@@ -1,5 +1,16 @@
 document.addEventListener('DOMContentLoaded', function () {
 
+    // 0. Handle Hamburger Menu
+    const hamburger = document.querySelector('.hamburger-menu');
+    const navLinks = document.querySelector('.nav-links');
+
+    if (hamburger && navLinks) {
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+    }
+
+
     // 1. Initialize the Tour Slider
     if (document.getElementById('tour-slider')) {
         new Splide('#tour-slider', {
@@ -133,12 +144,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 const card = e.target.closest('.tour-card');
                 openBookingModal(card);
             });
-        });
-
-        // Also handle the generic "Book Now" button in the header
-        document.querySelector('.header .btn-primary').addEventListener('click', (e) => {
-            e.preventDefault();
-            openBookingModal(null); // Open modal without a pre-selected tour
         });
 
         bookingModalCloseBtn.addEventListener('click', closeBookingModal);
