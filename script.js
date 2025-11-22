@@ -76,7 +76,7 @@ document.addEventListener('DOMContentLoaded', function () {
         // Function to open the modal
         const openDetailsModal = (card) => {
             document.getElementById('modal-title').textContent = card.dataset.title;
-            document.getElementById('modal-price').textContent = card.dataset.price;
+            // document.getElementById('modal-price').textContent = card.dataset.price; // Price hidden from details modal
             document.getElementById('modal-description').textContent = card.dataset.description;
             document.getElementById('modal-itinerary').textContent = card.dataset.itinerary;
             document.getElementById('modal-difficulty').textContent = card.dataset.difficulty;
@@ -150,6 +150,7 @@ document.addEventListener('DOMContentLoaded', function () {
         bookingModal.addEventListener('click', (e) => {
             if (e.target === bookingModal) closeBookingModal();
         });
+
     }
 
     // 3. Handle Destination Page Tabbed Navigation
@@ -206,4 +207,81 @@ document.addEventListener('DOMContentLoaded', function () {
             });
         });
     }
+
+    // 4. Handle Booking Confirmation Logic (moved from previous attempt)
+    const confirmationModal = document.getElementById('confirmation-modal');
+    if (bookingForm && confirmationModal) {
+        const confirmationModalCloseBtn = document.getElementById('confirmation-modal-close');
+        const editBookingBtn = document.getElementById('edit-booking');
+        const confirmAndSendBtn = document.getElementById('confirm-and-send');
+
+        const openConfirmationModal = () => {
+            confirmationModal.style.display = 'flex';
+            setTimeout(() => confirmationModal.classList.add('visible'), 10);
+        };
+
+        const closeConfirmationModal = () => {
+            confirmationModal.classList.remove('visible');
+            setTimeout(() => confirmationModal.style.display = 'none', 300);
+        };
+
+        bookingForm.addEventListener('submit', (e) => {
+            e.preventDefault(); // Prevent the form from submitting immediately
+
+            // 1. Get data from the booking form
+            const tourTitle = document.getElementById('tour-selection').value;
+            const pax = parseInt(document.getElementById('pax').value, 10);
+            const date = document.getElementById('tour-date').value;
+            const firstName = document.getElementById('first-name').value;
+            const lastName = document.getElementById('last-name').value;
+            const email = document.getElementById('email').value;
+
+            // 2. Find the tour card to get pricing info
+            const tourCard = Array.from(tourCards).find(card => card.dataset.title === tourTitle);
+            if (!tourCard) {
+                alert('Could not find tour details. Please re-select the tour.');
+                return;
+            }
+
+            const priceString = tourCard.dataset.price; // e.g., "$650 USD"
+            const priceValue = parseFloat(priceString.replace(/[^0-9.-]+/g,""));
+            const pricingModel = tourCard.querySelector('.card-meta').textContent; // "Per Person" or "Private Tour..."
+
+            let totalPrice = priceValue;
+            if (pricingModel.includes('Per Person')) {
+                totalPrice = priceValue * pax;
+            }
+
+            // 3. Populate the confirmation modal
+            document.getElementById('conf-tour').textContent = tourTitle;
+            document.getElementById('conf-date').textContent = date;
+            document.getElementById('conf-pax').textContent = pax;
+            document.getElementById('conf-name').textContent = `${firstName} ${lastName}`;
+            document.getElementById('conf-email').textContent = email;
+            document.getElementById('conf-price').textContent = `$${totalPrice.toFixed(2)} USD`;
+
+            // 4. Show the confirmation modal
+            closeBookingModal();
+            setTimeout(openConfirmationModal, 350); // Open after booking modal has closed
+        });
+
+        // --- Event Listeners for Confirmation Modal ---
+
+        // "Confirm & Send" button
+        confirmAndSendBtn.addEventListener('click', () => {
+            // Here you would typically send the data to a server.
+            // For now, we'll just simulate it with an alert and close the modals.
+            alert('Booking request sent successfully! We will contact you shortly to confirm.');
+            closeConfirmationModal();
+            bookingForm.reset(); // Clear the form for the next booking
+        });
+
+        // "Edit Details" button
+        editBookingBtn.addEventListener('click', () => {
+            closeConfirmationModal();
+            setTimeout(() => openBookingModal(null), 350); // Re-open the booking form
+        });
+        confirmationModalCloseBtn.addEventListener('click', closeConfirmationModal);
+    }
+
 });

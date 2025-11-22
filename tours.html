@@ -60,7 +60,6 @@
                              data-bring="Swimsuit, Sunscreen, Hat, Sunglasses, Waterproof Camera">
                             <div class="card-image" style="background-image: url('images/1.jpeg');"></div>
                             <div class="card-overlay"></div>
-                            <div class="card-price-pill">$650 USD</div>
                             <div class="card-content">
                                 <div class="card-title">Silk Caye Snorkeling</div>
                                 <div class="card-meta">Private Tour (2-4 ppl)</div>
@@ -82,7 +81,6 @@
                              data-bring="Polarized Sunglasses, Hat, Sunscreen, Light Jacket">
                             <div class="card-image" style="background-image: url('images/2.jpeg');"></div>
                             <div class="card-overlay"></div>
-                            <div class="card-price-pill">$700 USD</div>
                             <div class="card-content">
                                 <div class="card-title">Inner Reef Fishing</div>
                                 <div class="card-meta">Private Tour (2-4 ppl)</div>
@@ -104,7 +102,6 @@
                              data-bring="Swimsuit, Towel, Sunscreen, Hat, Camera">
                             <div class="card-image" style="background-image: url('images/3.jpeg');"></div>
                             <div class="card-overlay"></div>
-                            <div class="card-price-pill">$700 USD</div>
                             <div class="card-content">
                                 <div class="card-title">Snorkel & Fish Combo</div>
                                 <div class="card-meta">Private Tour (2-4 ppl)</div>
@@ -126,7 +123,6 @@
                              data-bring="Insect Repellent, Binoculars, Camera, Comfortable Shoes">
                             <div class="card-image" style="background-image: url('images/4.jpeg');"></div>
                             <div class="card-overlay"></div>
-                            <div class="card-price-pill">$85 USD</div>
                             <div class="card-content">
                                 <div class="card-title">Monkey River Tour</div>
                                 <div class="card-meta">Per Person</div>
@@ -148,7 +144,6 @@
                              data-bring="Comfortable Walking Shoes, Swimsuit, Towel, Sunscreen, Camera">
                             <div class="card-image" style="background-image: url('images/5.jpeg');"></div>
                             <div class="card-overlay"></div>
-                            <div class="card-price-pill">$150 USD</div>
                             <div class="card-content">
                                 <div class="card-title">Xunantunich & Blue Hole</div>
                                 <div class="card-meta">Per Person</div>
@@ -266,6 +261,50 @@
                     </div>
                     <button type="submit" class="btn btn-primary button-text" style="width: 100%; margin-top: 16px;">Send Booking Request</button>
                 </form>
+            </div>
+        </div>
+
+        <!-- Confirmation Modal -->
+        <div id="confirmation-modal" class="modal-overlay" style="display: none;">
+            <div class="modal-content">
+                <button id="confirmation-modal-close" class="modal-close">&times;</button>
+                <h2>Confirm Your Booking</h2>
+                <div id="confirmation-details" class="modal-body">
+                    <p>Please review your booking details below.</p>
+                    <div class="confirmation-summary">
+                        <p><strong>Tour:</strong> <span id="conf-tour"></span></p>
+                        <p><strong>Date:</strong> <span id="conf-date"></span></p>
+                        <p><strong>Guests:</strong> <span id="conf-pax"></span></p>
+                        <p><strong>Name:</strong> <span id="conf-name"></span></p>
+                        <p><strong>Email:</strong> <span id="conf-email"></span></p>
+                        <hr>
+                        <p class="confirmation-price"><strong>Total Price:</strong> <span id="conf-price"></span></p>
+                    </div>
+                    <button id="confirm-and-send" class="btn btn-primary button-text" style="width: 100%; margin-top: 16px;">Confirm & Send Request</button>
+                    <button id="edit-booking" class="btn btn-secondary button-text" style="width: 100%; margin-top: 8px;">Edit Details</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Confirmation Modal -->
+        <div id="confirmation-modal" class="modal-overlay" style="display: none;">
+            <div class="modal-content">
+                <button id="confirmation-modal-close" class="modal-close">&times;</button>
+                <h2>Confirm Your Booking</h2>
+                <div id="confirmation-details" class="modal-body">
+                    <p>Please review your booking details below.</p>
+                    <div class="confirmation-summary">
+                        <p><strong>Tour:</strong> <span id="conf-tour"></span></p>
+                        <p><strong>Date:</strong> <span id="conf-date"></span></p>
+                        <p><strong>Guests:</strong> <span id="conf-pax"></span></p>
+                        <p><strong>Name:</strong> <span id="conf-name"></span></p>
+                        <p><strong>Email:</strong> <span id="conf-email"></span></p>
+                        <hr>
+                        <p class="confirmation-price"><strong>Total Price:</strong> <span id="conf-price"></span></p>
+                    </div>
+                    <button id="confirm-and-send" class="btn btn-primary button-text" style="width: 100%; margin-top: 16px;">Confirm & Send Request</button>
+                    <button id="edit-booking" class="btn btn-secondary button-text" style="width: 100%; margin-top: 8px;">Edit Details</button>
+                </div>
             </div>
         </div>
 
